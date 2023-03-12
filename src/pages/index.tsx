@@ -3,7 +3,8 @@ import { type NextPage } from "next";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { trpc } from "../utils/trpc";
 import Layout from "../components/UIcomponent/Layout";
-import RecentTxns from "../components/UIcomponent/RecentTxns";
+import RecentTxns from "../components/LandingPage/RecentTxns";
+import SelectFlipToken from "../components/LandingPage/SelectFlipToken";
 import Smallmodal from "../components/UIcomponent/BaseComponents/Smallmodal";
 
 
@@ -21,12 +22,12 @@ const Home: NextPage = () => {
     <div className="overflow-x-hidden">
       <Smallmodal />
       <Layout>
-        <div className="container bg-white flex flex-row items-center justify-center gap-12 p-14 ">
+        <div className="container bg-white flex flex-row items-start justify-center gap-12 p-14 ">
           <div className="w-2/3 ">
             <RecentTxns />
           </div>
           <div className="w-1/3">
-            <h1>test</h1>
+            <SelectFlipToken />
           </div>
         </div>
       </Layout>

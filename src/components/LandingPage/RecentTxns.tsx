@@ -13,8 +13,9 @@ type ItemProps = {
 }
 
 const Item = (props: ItemProps) => {
-  return (
+ return (
   <div className="mb-2 flex w-full items-center justify-between rounded-2xl bg-white p-4 shadow-lg">
+    
     <div className="flex items-center">
       <Image
         src={coinAnim}
@@ -22,7 +23,7 @@ const Item = (props: ItemProps) => {
         className="h-12 w-12 rounded-full"
       />
       
-        <div className="text-base-bold flex ml-2">
+        <div className="text-base font-semibold flex ml-2">
             <div className="text-accent underline">{formatWalletSmall(props.wallet)}</div>
             <div className="ml-2 text-default">Flipped</div> 
             <div className="ml-2 text-primary">{props.sol} SOL</div>
