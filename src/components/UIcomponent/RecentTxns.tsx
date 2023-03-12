@@ -21,15 +21,15 @@ const Item = (props: ItemProps) => {
         alt="person"
         className="h-12 w-12 rounded-full"
       />
-      <div className="ml-2">
-        <span className="text-base-bold flex">
-            <p className="text-accent underline">{formatWalletSmall(props.wallet)}</p>
-            <p className="ml-2 text-default">Flipped</p> 
-            <p className="ml-2 text-primary">{props.sol} SOL</p>
-            <p className="ml-2 text-default">and</p>
-            <p className={`ml-2 ${props.win ? "text-success" : "text-error"}`}>{props.win ? "double" : "loss"}</p>
-        </span>
-      </div>
+      
+        <div className="text-base-bold flex ml-2">
+            <div className="text-accent underline">{formatWalletSmall(props.wallet)}</div>
+            <div className="ml-2 text-default">Flipped</div> 
+            <div className="ml-2 text-primary">{props.sol} SOL</div>
+            <div className="ml-2 text-default">and</div>
+            <div className={`ml-2 ${props.win ? "text-success" : "text-error"}`}>{props.win ? "double" : "loss"}</div>
+        </div>
+      
     </div>
     
     <div className="mr-2 text-right">
