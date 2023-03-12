@@ -1,19 +1,25 @@
+import { useEffect } from "react";
 import { type NextPage } from "next";
-import Head from "next/head";
-import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
-
 import { trpc } from "../utils/trpc";
-import Layout from "../components/Layout";
-import RecentTxns from "../components/RecentTxns";
+import Layout from "../components/UIcomponent/Layout";
+import RecentTxns from "../components/UIcomponent/RecentTxns";
+
+
 
 const Home: NextPage = () => {
   const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
 
+  // useEffect(() => {
+  //   const body = document.body;
+  //   // const themeValue = localStorage.getItem("datatheme");
+  //   body.setAttribute("data-theme", "lightBuild");
+  // }, []);
+
   return (
     <>
       <Layout>
-        <div className="container flex flex-row items-center justify-center gap-12 p-14">
+        <div className="container bg-white flex flex-row items-center justify-center gap-12 p-14 ">
           <div className="w-2/3">
             <RecentTxns />
           </div>

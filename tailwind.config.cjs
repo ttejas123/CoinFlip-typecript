@@ -32,8 +32,7 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        light: {
-          ...require("daisyui/src/colors/themes")["[data-theme=light]"],
+        lightBuild: {
           default: "#A1A2B3",
           "default-focus": "#858694",
           primary: "#FA4F00",
@@ -43,8 +42,21 @@ module.exports = {
           accent: "#121212",
           "accent-focus": "#0E0E0E",
           "accent-content": "#FEFEFE",
-        },
+        }
       },
+      {
+        darkBuild: {
+          default: "#000",
+          "default-focus": "#000",
+          primary: "#000",
+          "primary-focus": "#000",
+          secondary: "#000",
+          "secondary-focus": "#000",
+          accent: "#000",
+          "accent-focus": "#000",
+          "accent-content": "#000",
+        }
+      }
     ],
   },
   plugins: [require("daisyui")],

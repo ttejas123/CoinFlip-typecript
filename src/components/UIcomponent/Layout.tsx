@@ -12,7 +12,7 @@ export default function Layout({ children }: Props) {
       <NavBar />
       <div className="flex w-full flex-col justify-between px-24 py-16">
         <div className="flex-1 grow pb-16">
-          <div className="border-default rounded-2xl border-2 bg-white">
+          <div className="border-default rounded-2xl border-2 bg-default">
             {children}
           </div>
         </div>
