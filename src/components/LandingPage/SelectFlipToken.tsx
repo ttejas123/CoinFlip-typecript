@@ -1,5 +1,6 @@
 import React from 'react'
 import { SelctArrowDown, SelctTokeninfo } from '../../assets/img/Icons/Icons';
+import SelectCoinFlipTokenModal from '../UIcomponent/SelectCoinFlipTokenModal';
 
 type Props = {}
 
@@ -13,8 +14,8 @@ function SelectFlipToken({}: Props) {
           </div>
           <SelctArrowDown bgcolor_hash='none' color_hash='#fff' size='52' />
         </div>
-        <div className="border-default max-h-96 overflow-y-scroll rounded-2xl border p-4 scrollbar-style hidden">
-          
+        <div className="border-default max-h-96 rounded-2xl ">
+            <SelectCoinFlipTokenModal />
         </div>
       </div>
     );
