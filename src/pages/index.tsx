@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { type NextPage } from "next";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { trpc } from "../utils/trpc";
@@ -6,23 +6,22 @@ import Layout from "../components/UIcomponent/Layout";
 import RecentTxns from "../components/LandingPage/RecentTxns";
 import SelectFlipToken from "../components/LandingPage/SelectFlipToken";
 import Smallmodal from "../components/UIcomponent/BaseComponents/Smallmodal";
-
+import { ThemeContext } from "../context/ThemeContext";
 
 
 const Home: NextPage = () => {
   const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
-
-  // useEffect(() => {
-  //   const body = document.body;
-  //   // const themeValue = localStorage.getItem("datatheme");
-  //   body.setAttribute("data-theme", "lightBuild");
-  // }, []);
+  const theame = useContext(ThemeContext);
+  useEffect(() => {
+    const body = document.body;
+    body.setAttribute("data-theme", theame.theme);
+  }, [theame.theme]);
 
   return (
     <div className="overflow-x-hidden">
       <Smallmodal />
       <Layout>
-        <div className="container bg-white flex flex-row items-start justify-center gap-12 p-14 ">
+        <div className="container bg-base-100 flex flex-row items-start justify-center gap-12 p-14 ">
           <div className="w-2/3 ">
             <RecentTxns />
           </div>

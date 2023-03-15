@@ -7,6 +7,8 @@ module.exports = {
     extend: {
       backgroundImage: (theme) => ({
         lightBg: "url('../assets/img/bg-light.png')",
+        lightBg2: "url('../assets/img/bg-light-2.png')",
+        darkBg: "url('../assets/img/bg-dark.png')",
       }),
     },
     fontFamily: {
@@ -42,6 +44,8 @@ module.exports = {
           accent: "#121212",
           "accent-focus": "#0E0E0E",
           "accent-content": "#FEFEFE",
+          "base-100": "#fff",
+          blackbg: "#000"
         }
       },
       {
@@ -52,9 +56,11 @@ module.exports = {
           "primary-focus": "#000",
           secondary: "#000",
           "secondary-focus": "#000",
-          accent: "#000",
+          accent: "#fff",
           "accent-focus": "#000",
           "accent-content": "#000",
+          "base-100": "#000",
+          black: "#fff"
         }
       }
     ],

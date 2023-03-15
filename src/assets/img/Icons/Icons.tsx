@@ -1,4 +1,4 @@
-import {SELECT_FLIPTOKEN, SELECT_TOKEN_ARROWDOWN, SELECT_TOKEN_INFO, SELECT_TOKEN_COUNT} from './IconsString'
+import {SELECT_FLIPTOKEN, SELECT_TOKEN_ARROWDOWN, SELECT_TOKEN_INFO, SELECT_TOKEN_COUNT, SELECT_TOKEN_COUNT_IN} from './IconsString'
 
 // model props
 type selectTokenArrowDownProps = {
@@ -19,6 +19,11 @@ type selectFlipTokenProps = {
 }
 
 type selectTokenCountProps = {
+    size?: string
+    className?: string
+}
+
+type selectTokenCountInProps = {
     size?: string
     className?: string
 }
@@ -64,6 +69,17 @@ export const SelectTokenCount = (props: selectTokenCountProps) => {
         "{SIZE}": props.size ? props.size : "46"
     }
     const ProcessHtmlstr = SELECT_TOKEN_COUNT.replace(/{SIZE}/gi, (matched):string => {
+        return ReplacementObjectValue[matched];
+    })
+
+    return <div className={`${props.className}`} dangerouslySetInnerHTML={{__html: ProcessHtmlstr}}></div>
+}
+
+export const SelectTokenCountIn = (props: selectTokenCountInProps) => {
+    const ReplacementObjectValue:any = {
+        "{SIZE}": props.size ? props.size : "22"
+    }
+    const ProcessHtmlstr = SELECT_TOKEN_COUNT_IN.replace(/{SIZE}/gi, (matched):string => {
         return ReplacementObjectValue[matched];
     })
 

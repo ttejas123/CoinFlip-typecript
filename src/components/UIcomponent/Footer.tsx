@@ -8,13 +8,19 @@ type Props = {};
 
 export default function Footer({}: Props) {
   return (
-    <footer className="text-default-content border-default footer relative flex items-center justify-between rounded-2xl border-2 bg-white p-10">
+    <footer className="text-default-content border-default footer relative flex flex-wrap items-center justify-between rounded-2xl border-2 bg-white p-10">
+      
       <div>
           <a className="text-xl btn-ghost btn normal-case">
             {" "}
             <Image src={logo} alt="logo" className="w-32" />
           </a>
-        <></>
+      </div>
+      <div className="flex justify-center">
+        <span className="text-accent text-base font-bold mx-4">FAQ</span>
+        <span className="text-accent text-base font-bold mx-4">State</span>
+        <span className="text-accent text-base font-bold mx-4">Flip History</span>
+        <span className="text-accent text-base font-bold mx-4">Profile</span>
       </div>
       <div>
         <span className="footer-title">Social</span>
@@ -57,6 +63,11 @@ export default function Footer({}: Props) {
       <div className="absolute -top-[7px] flex w-full justify-center">
         <Image src={footerIcon} alt="footer-icon" className="w-64" />
       </div>
+
+      <div className="w-full border border-default -mb-10"></div>
+
+      <div className="text-accent"> Copyright © CreadoreStudio 2023. All rights reserved</div>
+      <div className="text-accent"> Legal Notice</div>
     </footer>
   );
 }
