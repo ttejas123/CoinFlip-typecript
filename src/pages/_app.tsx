@@ -6,6 +6,7 @@ import { trpc } from "../utils/trpc";
 
 import "../styles/globals.css";
 import ThemProvider from "../context/ThemeContext";
+import RecentTxnsProvider from "../context/RecentTxnsContext";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -14,7 +15,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
   return (
     <SessionProvider session={session}>
       <ThemProvider>
+        <RecentTxnsProvider>
           <Component {...pageProps} />
+        </RecentTxnsProvider>
       </ThemProvider>
     </SessionProvider>
   );

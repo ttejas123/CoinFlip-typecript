@@ -1,4 +1,5 @@
-import {SELECT_FLIPTOKEN, SELECT_TOKEN_ARROWDOWN, SELECT_TOKEN_INFO, SELECT_TOKEN_COUNT, SELECT_TOKEN_COUNT_IN} from './IconsString'
+import {SELECT_FLIPTOKEN, SELECT_TOKEN_ARROWDOWN, SELECT_TOKEN_INFO, SELECT_TOKEN_COUNT, SELECT_TOKEN_COUNT_IN, COMPANY_LOGO_ICON, FOOTER_CURVE_PIN} from './IconsString'
+import {COINFLIP_MAIN_LOGO} from './MainLogo'
 
 // model props
 type selectTokenArrowDownProps = {
@@ -25,6 +26,23 @@ type selectTokenCountProps = {
 
 type selectTokenCountInProps = {
     size?: string
+    className?: string
+    color?: "light" | "dark"
+}
+
+type companyLogoIconProps = {
+    width?: string
+    height?: string
+    className?: string
+    color?: string
+}
+
+type coinFlipLogoIconProps = {
+    className?: string
+    color?: string
+}
+
+type footerCurvePinProps = {
     className?: string
 }
 
@@ -77,11 +95,47 @@ export const SelectTokenCount = (props: selectTokenCountProps) => {
 
 export const SelectTokenCountIn = (props: selectTokenCountInProps) => {
     const ReplacementObjectValue:any = {
-        "{SIZE}": props.size ? props.size : "22"
+        "{SIZE}": props.size ? props.size : "22",
+        "{COLOR}": props.color == 'light' ? "#121212" : "#fff" 
     }
-    const ProcessHtmlstr = SELECT_TOKEN_COUNT_IN.replace(/{SIZE}/gi, (matched):string => {
+    const ProcessHtmlstr = SELECT_TOKEN_COUNT_IN.replace(/{SIZE}|{COLOR}/gi, (matched):string => {
         return ReplacementObjectValue[matched];
     })
 
     return <div className={`${props.className}`} dangerouslySetInnerHTML={{__html: ProcessHtmlstr}}></div>
+}
+
+export const CompanyLogoIcon = (props: companyLogoIconProps) => {
+    const ReplacementObjectValue:any = {
+        "{WIDTH}": props.width ? props.width : "157",
+        "{COLOR}": props.color ? props.color : "#fff",
+        "{HEIGHT}": props.height ? props.height : "160"
+    }
+    const ProcessHtmlstr = COMPANY_LOGO_ICON.replace(/{WIDTH}|{COLOR}|{HEIGHT}/gi, (matched):string => {
+        return ReplacementObjectValue[matched];
+    })
+
+    return <div className={`${props.className}`} dangerouslySetInnerHTML={{__html: ProcessHtmlstr}}></div>
+}
+
+export const CoinFlipLogoIcon = (props: coinFlipLogoIconProps) => {
+    const ReplacementObjectValue:any = {
+        "{COLOR}": props.color == 'light' ? "#121212" : "#fff",
+    }
+    const ProcessHtmlstr = COINFLIP_MAIN_LOGO.replace(/{COLOR}/gi, (matched):string => {
+        return ReplacementObjectValue[matched];
+    })
+
+    return <div className={`${props.className}`} dangerouslySetInnerHTML={{__html: ProcessHtmlstr}}></div>
+}
+
+export const FooterCurvePinIcon = (props: footerCurvePinProps) => {
+    const ReplacementObjectValue:any = {
+        
+    }
+    const ProcessHtmlstr = FOOTER_CURVE_PIN.replace(/""/gi, (matched):string => {
+        return ReplacementObjectValue[matched];
+    })
+
+    return <div className={`${props.className}`} dangerouslySetInnerHTML={{__html: ProcessHtmlstr}}></div> 
 }

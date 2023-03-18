@@ -34,7 +34,8 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        lightBuild: {
+        light: {
+          ...require("daisyui/src/colors/themes")["[data-theme=light]"],
           default: "#A1A2B3",
           "default-focus": "#858694",
           primary: "#FA4F00",
@@ -44,13 +45,22 @@ module.exports = {
           accent: "#121212",
           "accent-focus": "#0E0E0E",
           "accent-content": "#FEFEFE",
-          "base-100": "#fff",
-          blackbg: "#000"
+          "base-100": "#fff",     //backgroud light
+          "base-200": "#FEFEFF",  //background off white
+          "base-300": "#D9DAE1",  //border
+          '.btn-token-increase': {
+              'color': "#000",
+              'background-color': '#fff',
+              'border': "0.1rem solid #aaa"
+          },
+          '.btn-token-increase:hover': {
+              
+          },
         }
       },
       {
-        darkBuild: {
-          default: "#000",
+        dark: {
+          default: "#292929",
           "default-focus": "#000",
           primary: "#000",
           "primary-focus": "#000",
@@ -59,8 +69,18 @@ module.exports = {
           accent: "#fff",
           "accent-focus": "#000",
           "accent-content": "#000",
-          "base-100": "#000",
-          black: "#fff"
+          "base-100": "#000",     //backgroud dark
+          "base-200": "#121212",  //backgroud light dark 
+          "base-300": "#292929",  //border
+          '.btn-token-increase': {
+            'color': "#fff",
+            'background-color': '#121212',
+            'border': "0.1rem solid #292929",
+          },
+          '.btn-token-increase:hover': {
+            'background-color': '#FA4F00',
+            'border': "0rem solid #aaa",
+          },
         }
       }
     ],

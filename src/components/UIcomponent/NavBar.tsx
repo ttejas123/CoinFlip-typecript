@@ -2,13 +2,14 @@ import Image from "next/image";
 import React, { useContext } from "react";
 import logo from "../../assets/img/logo.png";
 import { ThemeContext } from "../../context/ThemeContext";
+import { CompanyLogoIcon } from "../../assets/img/Icons/Icons";
 
 type Props = {};
 
 export default function NavBar({}: Props) {
   const theame = useContext(ThemeContext);
   return (
-    <div className="border-default navbar border-b-2 bg-base-100 py-8 px-24">
+    <div className="border-base-300 navbar border-b-2 bg-base-100 py-4 px-24">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn-ghost btn lg:hidden">
@@ -28,10 +29,9 @@ export default function NavBar({}: Props) {
             </svg>
           </label>
         </div>
-        <a className="text-xl btn-ghost btn normal-case">
-          {" "}
-          <Image src={logo} alt="logo" className="w-32" />
-        </a>
+        <div>
+          <CompanyLogoIcon color={`${theame.theme == "light" ? "#000": "#fff"}`} width="150" />
+        </div>
       </div>
       <div className="navbar-end">
         <label className="swap swap-rotate mr-5">
@@ -59,7 +59,7 @@ export default function NavBar({}: Props) {
             </li>
           </ul>
         </div>
-        <a className="btn btn-primary">Select Wallet</a>
+        <a className="btn bg-orange-600 border-none text-white">Select Wallet</a>
       </div>
     </div>
   );

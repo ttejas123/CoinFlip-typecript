@@ -6,21 +6,41 @@
   @apply rounded-2xl;
 }
 
-
-.scrollbar-style::-webkit-scrollbar {
+/* light mode scrollbar style */
+.scrollbar-style-light::-webkit-scrollbar {
   width: 12px;
 }
 
 /* Track */
-.scrollbar-style::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
+.scrollbar-style-light::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px gray; 
   border-radius: 0px 10px 10px 0;
   overflow: hidden;
 }
  
 /* Handle */
-.scrollbar-style::-webkit-scrollbar-thumb {
+.scrollbar-style-light::-webkit-scrollbar-thumb {
   background: gray; 
+  border-radius: 0px 10px 10px 0;
+}
+
+
+/* dark mode scrollbar style */
+.scrollbar-style-dark::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+.scrollbar-style-dark::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px darkgray; 
+  background-color: black;
+  border-radius: 0px 10px 10px 0;
+  overflow: hidden;
+}
+ 
+/* Handle */
+.scrollbar-style-dark::-webkit-scrollbar-thumb {
+  background: #FA4F00; 
   border-radius: 0px 10px 10px 0;
 }
 
@@ -43,8 +63,82 @@
   background-color: red;
 }
 
-/* <div className="h-36 w-full rounded-2xl bg-gradient-to-r from-[#00FFA3] to-[#DC1FFF] p-0.5">
-                    <div className=" h-full w-full bg-white rounded-2xl ">
-    
-                    </div>
-                </div> */
+/* make curve in center of div */
+.curveDivInCenterDark{
+  overflow: hidden; 
+  position: relative;
+}
+.curveDivInCenterDark::after{
+  content: "";
+  position: absolute;
+  background-image: url('../assets/img/FooterCurveIcon.svg');
+  background-repeat: no-repeat;
+  background-position: center bottom 10px;
+  width: 150px;
+  height: 200px;
+  left: 52%;
+  margin-left: -100px;
+  top: -175px;
+  border-radius: 50%;
+  background-color: black;
+  clip-path: ellipse(50% 50% at 50% 50%);
+}
+
+.curveDivInCenterLight{
+  overflow: hidden; 
+  position: relative;
+}
+.curveDivInCenterLight::before{
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  border-radius: 1rem;
+  border: 2px solid #D9DAE1;
+}
+.curveDivInCenterLight::after{
+  content: "";
+  background-image: url('../assets/img/FooterCurveIcon.svg');
+  background-repeat: no-repeat;
+  background-position: center bottom 10px;
+  position: absolute;
+  width: 150px;
+  height: 200px;
+  left: 51.7%;
+  margin-left: -100px;
+  top: -175px;
+  border-radius: 50%;
+  border: 2px solid #D9DAE1;
+  background-color: white;
+}
+
+
+/* animetion of txn element */
+
+div.new {
+  opacity: 0;
+  transform: translateY(-50%);
+  animation: fade-in 0.7s ease forwards, slide-in 0.5s ease forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    background: rgba(255, 181, 108, 0.3);
+  }
+  to {
+    opacity: 1;
+    background: rgba(255, 128, 0, 0.3);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(-70%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

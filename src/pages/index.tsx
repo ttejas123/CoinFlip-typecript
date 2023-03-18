@@ -21,7 +21,7 @@ const Home: NextPage = () => {
     <div className="overflow-x-hidden">
       <Smallmodal />
       <Layout>
-        <div className="container bg-base-100 flex flex-row items-start justify-center gap-12 p-14 ">
+        <div className="container rounded-2xl flex flex-row items-start justify-center gap-12 p-14 ">
           <div className="w-2/3 ">
             <RecentTxns />
           </div>

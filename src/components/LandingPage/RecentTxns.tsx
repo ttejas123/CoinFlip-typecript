@@ -1,21 +1,26 @@
 import Image from "next/image";
-import React, { useState } from "react";
-import coinFlipLogo from "../../assets/img/coinflip-logo.png";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { CoinFlipLogoIcon } from "../../assets/img/Icons/Icons";
 import coinAnim from "../../assets/img/coin-anim.gif";
 import { formatWalletSmall } from "../../utils/WalletShort";
+import { ThemeContext } from "../../context/ThemeContext";
+import { RecentTxnsContext } from "../../context/RecentTxnsContext";
 
 type Props = {};
 type ItemProps = {
+    id?: number
     url?: string
-    wallet: string
+    alternet?: boolean
+    wallet?: string
     sol: number
-    win: boolean  
+    win?: boolean 
+    index?: number 
 }
 
 const Item = (props: ItemProps) => {
+
  return (
-  <div className="mb-2 flex w-full items-center justify-between rounded-2xl bg-white p-4 shadow-lg">
-    
+  <>
     <div className="flex items-center">
       <Image
         src={coinAnim}
@@ -24,9 +29,9 @@ const Item = (props: ItemProps) => {
       />
       
         <div className="text-base font-semibold flex ml-2">
-            <div className="text-accent underline">{formatWalletSmall(props.wallet)}</div>
+            <div className="text-accent underline">{formatWalletSmall(props.wallet? props.wallet : "")}</div>
             <div className="ml-2 text-default">Flipped</div> 
-            <div className="ml-2 text-primary">{props.sol} SOL</div>
+            <div className="ml-2 text-orange-500">{props.sol} SOL</div>
             <div className="ml-2 text-default">and</div>
             <div className={`ml-2 ${props.win ? "text-success" : "text-error"}`}>{props.win ? "double" : "loss"}</div>
         </div>
@@ -36,30 +41,45 @@ const Item = (props: ItemProps) => {
     <div className="mr-2 text-right">
       a few second ago
     </div>
-  </div>
+  </>
 );
 }
 
 export default function RecentTxns({}: Props) {
 
-  const [List, setList] = useState(new Array(10).fill(0));
+  const RecentTxnContext = useContext(RecentTxnsContext);
+  const theme = useContext(ThemeContext)
+  const ref = useRef<HTMLInputElement | null>(null);
+  const alternetColorAccordingtoTheme = (alternet:boolean) => {
+    if(theme.theme == 'light'){
+        return "bg-base-100"
+    } 
+
+    if(alternet) return "bg-base-100";
+
+    return "bg-base-200"
+  }
+
+  useEffect(()=> {
+    const timeout = setTimeout(() => {
+      const newElement = document.querySelector(".new");
+      if (newElement) {
+        newElement.classList.remove("new");
+      }
+    }, 1000);
+    return clearTimeout(timeout);
+  }, [])
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="border-default flex items-center justify-between rounded-2xl border py-5 px-6">
-        <Image src={coinFlipLogo} alt="coinflip" className="w-64" />
+      <div className="border-base-300 flex items-center justify-between rounded-2xl border py-5 px-6">
+        <CoinFlipLogoIcon color={theme.theme} />
         <Image src={coinAnim} alt="coin" className="w-20" />
       </div>
-      <div className="border-default max-h-96 overflow-y-scroll rounded-2xl border p-4 scrollbar-style">
-        {List.map((val, index) => {
-            const passingArg: ItemProps = {
-              sol: (Math.floor(Math.random() * 10)),
-              wallet: "r8pwQWmVB1zmPEwDyHuu7mVKyxXiAqJvKupsK25hTC5",
-              win: Math.random() < 0.4,
-              url: "xyz" 
-            }
+      <div className={`border-base-300 max-h-96 overflow-y-scroll rounded-2xl border p-4 ${theme.theme == 'light' ? "scrollbar-style-light" : "scrollbar-style-dark"} scroll-smooth`}>
+        {RecentTxnContext.RecentTxns.map((val, index) => {
             return (
-              <Item key={index} {...passingArg} />
+              <div key={val.id} className={`mb-2 flex w-full items-center justify-between transition-colors rounded-2xl ${alternetColorAccordingtoTheme(val.alternet ? val.alternet : false)} p-4 shadow-lg ${index == 0 ? "new" : ""}`}><Item {...val}  /></div>
             )
         })}
       </div>

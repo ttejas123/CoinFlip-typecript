@@ -1,6 +1,6 @@
 import React, { createContext, ReactNode, useState } from "react";
 
-type ThemeType = "lightBuild" | "darkBuild";
+type ThemeType = "light" | "dark";
 
 type ThemeContextType = {
     theme: ThemeType,
@@ -8,7 +8,7 @@ type ThemeContextType = {
 }
 
 export const ThemeContext = createContext<ThemeContextType>({
-    theme: "lightBuild",
+    theme: "light",
     changeTheme: ()=> {}
 });
 
@@ -17,11 +17,11 @@ type Themeprops = {
 }
 
 const ThemProvider = (props:Themeprops) => {
-    const [theme, setTheme] = useState<ThemeType>("lightBuild");
+    const [theme, setTheme] = useState<ThemeType>("light");
 
     const changeTheme = ():void => {
         setTheme((pre)=> {
-            return pre == "lightBuild" ? "darkBuild" : "lightBuild"
+            return pre == "light" ? "dark" : "light"
         })
     }
 

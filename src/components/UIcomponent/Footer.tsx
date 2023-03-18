@@ -1,19 +1,20 @@
 import Image from "next/image";
-import React from "react";
-import footerIcon from "../../assets/img/footerIcon.png";
-
-import logo from "../../assets/img/logo.png";
+import React, { useContext } from "react";
+import { FooterCurvePinIcon } from "../../assets/img/Icons/Icons";
+import { ThemeContext } from "../../context/ThemeContext";
+import { CompanyLogoIcon } from "../../assets/img/Icons/Icons";
 
 type Props = {};
 
 export default function Footer({}: Props) {
+  const theame = useContext(ThemeContext);
   return (
-    <footer className="text-default-content border-default footer relative flex flex-wrap items-center justify-between rounded-2xl border-2 bg-white p-10">
+    <footer className={`text-default-content ${theame.theme == "light" ? "curveDivInCenterLight": "curveDivInCenterDark"} footer relative flex flex-wrap items-center justify-between rounded-2xl bg-base-200 p-10`}>
       
       <div>
           <a className="text-xl btn-ghost btn normal-case">
             {" "}
-            <Image src={logo} alt="logo" className="w-32" />
+            <CompanyLogoIcon color={`${theame.theme == "light" ? "#000": "#fff"}`} />
           </a>
       </div>
       <div className="flex justify-center">
@@ -60,11 +61,12 @@ export default function Footer({}: Props) {
           </a>
         </div>
       </div>
-      <div className="absolute -top-[7px] flex w-full justify-center">
-        <Image src={footerIcon} alt="footer-icon" className="w-64" />
+      <div className="absolute top-[0px] w-full left-0 flex justify-center">
+        {/* <FooterCurvePinIcon className=" z-10" /> */}
+        {/* <Image src={footerIcon} alt="footer-icon" className="w-64" /> */}
       </div>
 
-      <div className="w-full border border-default -mb-10"></div>
+      <div className="w-full border border-base-300 -mb-10"></div>
 
       <div className="text-accent"> Copyright © CreadoreStudio 2023. All rights reserved</div>
       <div className="text-accent"> Legal Notice</div>
