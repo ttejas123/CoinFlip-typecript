@@ -5,6 +5,7 @@ import coinAnim from "../../assets/img/coin-anim.gif";
 import { formatWalletSmall } from "../../utils/WalletShort";
 import { ThemeContext } from "../../context/ThemeContext";
 import { RecentTxnsContext } from "../../context/RecentTxnsContext";
+import { ToastContext } from "../../context/ToastContext";
 
 type Props = {};
 type ItemProps = {
@@ -49,6 +50,8 @@ export default function RecentTxns({}: Props) {
 
   const RecentTxnContext = useContext(RecentTxnsContext);
   const theme = useContext(ThemeContext)
+  const ToastContextInstance = useContext(ToastContext);
+
   const alternetColorAccordingtoTheme = (alternet:boolean) => {
     if(theme.theme == 'light'){
         return "bg-base-100"
@@ -72,7 +75,9 @@ export default function RecentTxns({}: Props) {
   }, [RecentTxnContext.RecentTxns])
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4" onClick={()=> {
+        ToastContextInstance.ShowToast("Hii My Name is Tejas")
+    }}>
       <div className="border-base-300 flex items-center justify-between rounded-2xl border py-5 px-6">
         <CoinFlipLogoIcon color={theme.theme} />
         <Image src={coinAnim} alt="coin" className="w-20" />
@@ -80,7 +85,7 @@ export default function RecentTxns({}: Props) {
       <div className={`border-base-300 max-h-96 overflow-y-scroll rounded-2xl border p-4 ${theme.theme == 'light' ? "scrollbar-style-light" : "scrollbar-style-dark"} scroll-smooth ${RecentTxnContext.RecentTxns.length == 0 && "hidden"}`}>
         {RecentTxnContext.RecentTxns.map((val, index) => {
             return (
-              <div key={val.id} className={`mb-2 flex w-full items-center justify-between transition-colors rounded-2xl ${alternetColorAccordingtoTheme(val.alternet ? val.alternet : false)} p-4 shadow-lg ${index == 0 ? "new" : ""}`}><Item {...val}  /></div>
+              <div key={val.id} className={`mb-2 flex w-full items-center justify-between transition-all cursor-pointer hover:scale-95 rounded-2xl ${alternetColorAccordingtoTheme(val.alternet ? val.alternet : false)} p-4 shadow-lg ${index == 0 ? "new" : ""}`}><Item {...val}  /></div>
             )
         })}
       </div>
