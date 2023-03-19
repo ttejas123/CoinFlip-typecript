@@ -56,6 +56,9 @@ module.exports = {
           '.btn-token-increase:hover': {
               
           },
+          '.FAQ-highlighter': {
+              color: 'rgb(234 ,88 ,12)'
+          },
         }
       },
       {
@@ -80,6 +83,9 @@ module.exports = {
           '.btn-token-increase:hover': {
             'background-color': '#FA4F00',
             'border': "0rem solid #aaa",
+          },
+          '.FAQ-highlighter': {
+            color: 'rgb(234 ,88 ,12)'
           },
         }
       }

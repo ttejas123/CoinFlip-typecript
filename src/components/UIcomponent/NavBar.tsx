@@ -1,6 +1,4 @@
-import Image from "next/image";
 import React, { useContext } from "react";
-import logo from "../../assets/img/logo.png";
 import { ThemeContext } from "../../context/ThemeContext";
 import { CompanyLogoIcon } from "../../assets/img/Icons/Icons";
 
@@ -46,16 +44,16 @@ export default function NavBar({}: Props) {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 text-accent text-base font-semibold">
             <li>
-              <a>FAQ</a>
+              <label htmlFor="My-FAQ-Modal">FAQ</label>
             </li>
             <li>
-              <a>State</a>
+              <label>State</label>
             </li>
             <li>
-              <a>Flip History</a>
+              <label>Flip History</label>
             </li>
             <li>
-              <a>Profile</a>
+              <label>Profile</label>
             </li>
           </ul>
         </div>

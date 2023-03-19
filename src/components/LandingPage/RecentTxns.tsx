@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { CoinFlipLogoIcon } from "../../assets/img/Icons/Icons";
 import coinAnim from "../../assets/img/coin-anim.gif";
 import { formatWalletSmall } from "../../utils/WalletShort";
@@ -31,7 +31,7 @@ const Item = (props: ItemProps) => {
         <div className="text-base font-semibold flex ml-2">
             <div className="text-accent underline">{formatWalletSmall(props.wallet? props.wallet : "")}</div>
             <div className="ml-2 text-default">Flipped</div> 
-            <div className="ml-2 text-orange-500">{props.sol} SOL</div>
+            <div className="ml-2 FAQ-highlighter">{props.sol} SOL</div>
             <div className="ml-2 text-default">and</div>
             <div className={`ml-2 ${props.win ? "text-success" : "text-error"}`}>{props.win ? "double" : "loss"}</div>
         </div>
@@ -49,7 +49,6 @@ export default function RecentTxns({}: Props) {
 
   const RecentTxnContext = useContext(RecentTxnsContext);
   const theme = useContext(ThemeContext)
-  const ref = useRef<HTMLInputElement | null>(null);
   const alternetColorAccordingtoTheme = (alternet:boolean) => {
     if(theme.theme == 'light'){
         return "bg-base-100"
@@ -67,8 +66,10 @@ export default function RecentTxns({}: Props) {
         newElement.classList.remove("new");
       }
     }, 1000);
-    return clearTimeout(timeout);
-  }, [])
+    return ()=> { 
+      clearTimeout(timeout);
+    }
+  }, [RecentTxnContext.RecentTxns])
 
   return (
     <div className="flex flex-col gap-4">

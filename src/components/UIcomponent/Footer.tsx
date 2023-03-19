@@ -17,11 +17,21 @@ export default function Footer({}: Props) {
             <CompanyLogoIcon color={`${theame.theme == "light" ? "#000": "#fff"}`} />
           </a>
       </div>
-      <div className="flex justify-center">
-        <span className="text-accent text-base font-bold mx-4">FAQ</span>
-        <span className="text-accent text-base font-bold mx-4">State</span>
-        <span className="text-accent text-base font-bold mx-4">Flip History</span>
-        <span className="text-accent text-base font-bold mx-4">Profile</span>
+      <div className="flex justify-center pr-5">
+          <ul className="menu menu-horizontal px-1 text-accent text-base font-semibold">
+              <li>
+                <label htmlFor="My-FAQ-Modal">FAQ</label>
+              </li>
+              <li>
+                <label>State</label>
+              </li>
+              <li>
+                <label>Flip History</label>
+              </li>
+              <li>
+                <label>Profile</label>
+              </li>
+          </ul>
       </div>
       <div>
         <span className="footer-title">Social</span>
