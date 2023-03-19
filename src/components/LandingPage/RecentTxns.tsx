@@ -77,7 +77,7 @@ export default function RecentTxns({}: Props) {
         <CoinFlipLogoIcon color={theme.theme} />
         <Image src={coinAnim} alt="coin" className="w-20" />
       </div>
-      <div className={`border-base-300 max-h-96 overflow-y-scroll rounded-2xl border p-4 ${theme.theme == 'light' ? "scrollbar-style-light" : "scrollbar-style-dark"} scroll-smooth`}>
+      <div className={`border-base-300 max-h-96 overflow-y-scroll rounded-2xl border p-4 ${theme.theme == 'light' ? "scrollbar-style-light" : "scrollbar-style-dark"} scroll-smooth ${RecentTxnContext.RecentTxns.length == 0 && "hidden"}`}>
         {RecentTxnContext.RecentTxns.map((val, index) => {
             return (
               <div key={val.id} className={`mb-2 flex w-full items-center justify-between transition-colors rounded-2xl ${alternetColorAccordingtoTheme(val.alternet ? val.alternet : false)} p-4 shadow-lg ${index == 0 ? "new" : ""}`}><Item {...val}  /></div>
