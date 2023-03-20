@@ -8,6 +8,8 @@ import "../styles/globals.css";
 import ThemProvider from "../context/ThemeContext";
 import RecentTxnsProvider from "../context/RecentTxnsContext";
 import ToastProvider from "../context/ToastContext";
+import store from "../redux/store";
+import { Provider } from "react-redux"
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -15,13 +17,15 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <ThemProvider>
-        <RecentTxnsProvider>
-          <ToastProvider>
-            <Component {...pageProps} />
-          </ToastProvider>
-        </RecentTxnsProvider>
-      </ThemProvider>
+      <Provider store={store}>
+        <ThemProvider>
+          <RecentTxnsProvider>
+            <ToastProvider>
+              <Component {...pageProps} />
+            </ToastProvider>
+          </RecentTxnsProvider>
+        </ThemProvider>
+      </Provider>
     </SessionProvider>
   );
 };

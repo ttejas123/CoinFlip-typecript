@@ -70,14 +70,14 @@ function SelectCoinFlipTokenModal() {
                   onClick={onRegisterTxn}
                 ><Image
                     src={CoinFace}
-                    alt="person"
+                    alt="Coinface"
                     className="h-7 w-7 rounded-full mr-2"
                   /> Coin Face</div>
                 <div className='bg-accent flex py-3 ml-2 justify-center font-bold rounded-xl items-center cursor-pointer hover:scale-95'
                   onClick={onRegisterTxn}
                 ><Image
                     src={CoinCross}
-                    alt="person"
+                    alt="CoinCross"
                     className="h-7 w-7 rounded-full mr-2"
                   /> Coin Cross</div>
               </div>

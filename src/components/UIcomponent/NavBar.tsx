@@ -53,7 +53,7 @@ export default function NavBar({}: Props) {
               <label>Flip History</label>
             </li>
             <li>
-              <label>Profile</label>
+              <label htmlFor="My-Successfull-shot-Modal">Profile</label>
             </li>
           </ul>
         </div>

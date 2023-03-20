@@ -5,9 +5,10 @@ import { trpc } from "../utils/trpc";
 import Layout from "../components/UIcomponent/Layout";
 import RecentTxns from "../components/LandingPage/RecentTxns";
 import SelectFlipToken from "../components/LandingPage/SelectFlipToken";
-import Smallmodal from "../components/UIcomponent/BaseComponents/Smallmodal";
 import { ThemeContext } from "../context/ThemeContext";
-import FAQ from "../components/UIcomponent/FAQ";
+import FAQ from "../components/UIcomponent/Models/FAQ";
+import SuccessFullShotModel from "../components/UIcomponent/Models/SuccessFullShotModel";
+import AgeVerificationModel from "../components/UIcomponent/Models/AgeVerificationModel";
 
 const Home: NextPage = () => {
   const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
@@ -19,8 +20,9 @@ const Home: NextPage = () => {
 
   return (
     <div className="overflow-x-hidden">
-      <Smallmodal />
+      <AgeVerificationModel />
       <FAQ />
+      <SuccessFullShotModel />
       <Layout>
         <div className="container rounded-2xl flex flex-row items-start justify-center gap-12 p-14 ">
           <div className="w-2/3 ">

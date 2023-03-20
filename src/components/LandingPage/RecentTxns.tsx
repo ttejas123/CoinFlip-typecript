@@ -6,6 +6,8 @@ import { formatWalletSmall } from "../../utils/WalletShort";
 import { ThemeContext } from "../../context/ThemeContext";
 import { RecentTxnsContext } from "../../context/RecentTxnsContext";
 import { ToastContext } from "../../context/ToastContext";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleSuccessfullShotModel } from "../../redux/reducer/uicontrols";
 
 type Props = {};
 type ItemProps = {
@@ -51,7 +53,6 @@ export default function RecentTxns({}: Props) {
   const RecentTxnContext = useContext(RecentTxnsContext);
   const theme = useContext(ThemeContext)
   const ToastContextInstance = useContext(ToastContext);
-
   const alternetColorAccordingtoTheme = (alternet:boolean) => {
     if(theme.theme == 'light'){
         return "bg-base-100"
@@ -75,13 +76,15 @@ export default function RecentTxns({}: Props) {
   }, [RecentTxnContext.RecentTxns])
 
   return (
-    <div className="flex flex-col gap-4" onClick={()=> {
-        ToastContextInstance.ShowToast("Hii My Name is Tejas")
-    }}>
-      <div className="border-base-300 flex items-center justify-between rounded-2xl border py-5 px-6">
+    <div className="flex flex-col gap-4">
+      <div className="border-base-300 flex items-center justify-between rounded-2xl border py-5 px-6" onClick={()=> {
+        ToastContextInstance.ShowToast("Hii My Name is Tejas");
+      }}>
         <CoinFlipLogoIcon color={theme.theme} />
         <Image src={coinAnim} alt="coin" className="w-20" />
       </div>
+
+      
       <div className={`border-base-300 max-h-96 overflow-y-scroll rounded-2xl border p-4 ${theme.theme == 'light' ? "scrollbar-style-light" : "scrollbar-style-dark"} scroll-smooth ${RecentTxnContext.RecentTxns.length == 0 && "hidden"}`}>
         {RecentTxnContext.RecentTxns.map((val, index) => {
             return (

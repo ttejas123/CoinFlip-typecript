@@ -25,7 +25,6 @@ export const RecentTxnsContext = createContext<providerValueProps>({
 
 const RecentTxnsProvider = (recenttxnproviderprops: recentTxnProvidersProps) => {
     const [RecentTxns, setRecentTxns] = useState<txn[]>([]);
-
     const RegisterNewTxn = (props:txn):void => {
         setRecentTxns((pre: txn[]) : txn[] =>{ 
             return [
@@ -54,4 +53,4 @@ const RecentTxnsProvider = (recenttxnproviderprops: recentTxnProvidersProps) => 
     )
 }
 
-export default RecentTxnsProvider
+export default React.memo(RecentTxnsProvider)

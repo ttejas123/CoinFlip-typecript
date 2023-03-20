@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import AgeVerificationImg from '../../../assets/img/Age-verification-img.png'
 import Image from 'next/image';
 
-function Smallmodal() {
+function AgeVerificationModel() {
   const [checked, setChecked] = useState(true);
   return (
     <div>
@@ -34,4 +34,4 @@ function Smallmodal() {
   )
 }
 
-export default Smallmodal
+export default AgeVerificationModel

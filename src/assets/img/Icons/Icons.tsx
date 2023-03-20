@@ -1,5 +1,5 @@
 import {SELECT_FLIPTOKEN, SELECT_TOKEN_ARROWDOWN, SELECT_TOKEN_INFO, SELECT_TOKEN_COUNT, SELECT_TOKEN_COUNT_IN, COMPANY_LOGO_ICON, FOOTER_CURVE_PIN} from './IconsString'
-import {COINFLIP_MAIN_LOGO} from './MainLogo'
+import { COINFLIP_MAIN_LOGO } from './MainLogo'
 
 // model props
 type selectTokenArrowDownProps = {
