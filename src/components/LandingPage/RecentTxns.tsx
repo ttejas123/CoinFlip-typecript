@@ -1,13 +1,11 @@
 import Image from "next/image";
-import React, { useContext, useEffect } from "react";
+import React, { LegacyRef, useContext, useEffect, useRef } from "react";
 import { CoinFlipLogoIcon } from "../../assets/img/Icons/Icons";
 import coinAnim from "../../assets/img/coin-anim.gif";
 import { formatWalletSmall } from "../../utils/WalletShort";
 import { ThemeContext } from "../../context/ThemeContext";
 import { RecentTxnsContext } from "../../context/RecentTxnsContext";
 import { ToastContext } from "../../context/ToastContext";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleSuccessfullShotModel } from "../../redux/reducer/uicontrols";
 
 type Props = {};
 type ItemProps = {
@@ -53,6 +51,8 @@ export default function RecentTxns({}: Props) {
   const RecentTxnContext = useContext(RecentTxnsContext);
   const theme = useContext(ThemeContext)
   const ToastContextInstance = useContext(ToastContext);
+  const RefFirstElement = useRef<HTMLDivElement>(null);
+  const RefSecondElement = useRef<HTMLDivElement>(null);
   const alternetColorAccordingtoTheme = (alternet:boolean) => {
     if(theme.theme == 'light'){
         return "bg-base-100"
@@ -64,12 +64,29 @@ export default function RecentTxns({}: Props) {
   }
 
   useEffect(()=> {
+    // fade in the first div
+    if(RefFirstElement.current){
+      RefFirstElement.current.style.opacity = '1';
+    }
+    const hideandShow = setTimeout(() => {
+      // hide the first div
+      if(RefFirstElement.current) RefFirstElement.current.style.opacity = '0';
+      // show the second div
+      if(RefSecondElement.current) RefSecondElement.current.classList.add('active')
+    }, 5000);
+    return ()=> {
+      clearTimeout(hideandShow)
+    }
+  }, [])
+
+  useEffect(()=> {
     const timeout = setTimeout(() => {
       const newElement = document.querySelector(".new");
       if (newElement) {
         newElement.classList.remove("new");
       }
     }, 1000);
+    
     return ()=> { 
       clearTimeout(timeout);
     }
@@ -77,14 +94,17 @@ export default function RecentTxns({}: Props) {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="border-base-300 flex items-center justify-between rounded-2xl border py-5 px-6" onClick={()=> {
+      <div className="border-base-300 flex items-center justify-between rounded-2xl border py-5 px-6 relative" onClick={()=> {
         ToastContextInstance.ShowToast("Hii My Name is Tejas");
       }}>
+
         <CoinFlipLogoIcon color={theme.theme} />
         <Image src={coinAnim} alt="coin" className="w-20" />
+        <div ref={RefFirstElement} className="first bg-white rounded-2xl flex flex-col justify-center items-center">
+          <div className="text-subtitle font-bold ">We are gald to see you back at CoinFlip</div>
+          <button className="btn btn-primary">Remember To Play Responsibly</button>
+        </div>
       </div>
-
-      
       <div className={`border-base-300 max-h-96 overflow-y-scroll rounded-2xl border p-4 ${theme.theme == 'light' ? "scrollbar-style-light" : "scrollbar-style-dark"} scroll-smooth ${RecentTxnContext.RecentTxns.length == 0 && "hidden"}`}>
         {RecentTxnContext.RecentTxns.map((val, index) => {
             return (

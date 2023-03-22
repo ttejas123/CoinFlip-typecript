@@ -1,4 +1,4 @@
-import {SELECT_FLIPTOKEN, SELECT_TOKEN_ARROWDOWN, SELECT_TOKEN_INFO, SELECT_TOKEN_COUNT, SELECT_TOKEN_COUNT_IN, COMPANY_LOGO_ICON, FOOTER_CURVE_PIN} from './IconsString'
+import {SELECT_FLIPTOKEN, SELECT_TOKEN_ARROWDOWN, SELECT_TOKEN_INFO, SELECT_TOKEN_COUNT, SELECT_TOKEN_COUNT_IN, COMPANY_LOGO_ICON, FOOTER_CURVE_PIN, SOLANA_ICON, TETHER_ICON} from './IconsString'
 import { COINFLIP_MAIN_LOGO } from './MainLogo'
 
 // model props
@@ -44,6 +44,16 @@ type coinFlipLogoIconProps = {
 
 type footerCurvePinProps = {
     className?: string
+}
+
+type solanaIconProps = {
+    className?: string
+    size?: string
+}
+
+type tetherIconProps = {
+    className?: string
+    size?: string
 }
 
 //Icon resolvers
@@ -138,4 +148,26 @@ export const FooterCurvePinIcon = (props: footerCurvePinProps) => {
     })
 
     return <div className={`${props.className}`} dangerouslySetInnerHTML={{__html: ProcessHtmlstr}}></div> 
+}
+
+export const SolanaIcon = (props: solanaIconProps) => {
+    const ReplacementObjectValue:any = {
+        "{SIZE}": props.size ? props.size : "40",
+    }
+    const ProcessHtmlstr = SOLANA_ICON.replace(/{SIZE}/gi, (matched):string => {
+        return ReplacementObjectValue[matched];
+    })
+
+    return <div className={`${props.className}`} dangerouslySetInnerHTML={{__html: ProcessHtmlstr}}></div>
+}
+
+export const TetherIcon = (props: tetherIconProps) => {
+    const ReplacementObjectValue:any = {
+        "{SIZE}": props.size ? props.size : "40",
+    }
+    const ProcessHtmlstr = TETHER_ICON.replace(/{SIZE}/gi, (matched):string => {
+        return ReplacementObjectValue[matched];
+    })
+
+    return <div className={`${props.className}`} dangerouslySetInnerHTML={{__html: ProcessHtmlstr}}></div>
 }

@@ -43,8 +43,8 @@ export default function NavBar({}: Props) {
         </label>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 text-accent text-base font-semibold">
-            <li>
-              <label htmlFor="My-FAQ-Modal">FAQ</label>
+            <li className="overflow-hidden">
+              <label htmlFor="My-FAQ-Modal" className="nav-pill">FAQ</label>
             </li>
             <li>
               <label>State</label>

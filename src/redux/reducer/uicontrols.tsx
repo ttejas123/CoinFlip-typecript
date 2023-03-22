@@ -1,19 +1,28 @@
 import { AnyAction } from 'redux'
-const SUCCESSFULL_SHOT_MODEL = 'playground/uicontrols/SUCCESSFULL_SHOT_MODEL';
+const TOKEN_SELECTOR_MODEL = 'playground/uicontrols/TOKEN_SELECTOR_MODEL';
+const SELECTED_TOKEN_DATA = 'playground/uicontrols/SELECTED_TOKEN_DATA';
 
 const initialState = {
-    successfullShot: false
+    tokenSelectorModel: false,
+    selectedTokenData: ""
 };
 
 export default (state = initialState, action:AnyAction) => {
     switch (action.type) {
-      case SUCCESSFULL_SHOT_MODEL:
-        return { ...state, successfullShot: !state.successfullShot };
+      case TOKEN_SELECTOR_MODEL:
+        return {...state, tokenSelectorModel: !state.tokenSelectorModel}
+      case SELECTED_TOKEN_DATA:
+        return {...state, selectedTokenData: action.payload}
       default:
         return state;
     }
 };
 
-export const toggleSuccessfullShotModel = () => ({
-    type: SUCCESSFULL_SHOT_MODEL,
+export const toggleTokenSelectorModel = () => ({
+  type: TOKEN_SELECTOR_MODEL,
+});
+
+export const selectTokenData = (payload:'eth' | 't#') => ({
+  type: SELECTED_TOKEN_DATA,
+  payload: payload
 });

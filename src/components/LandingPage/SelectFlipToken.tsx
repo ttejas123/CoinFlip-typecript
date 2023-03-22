@@ -1,25 +1,35 @@
-import React, { useState } from 'react'
-import { SelctArrowDown, SelctTokeninfo } from '../../assets/img/Icons/Icons';
+import React, { useCallback, useState } from 'react'
+import { SelctArrowDown, SelctTokeninfo, SolanaIcon, TetherIcon } from '../../assets/img/Icons/Icons';
 import SelectCoinFlipTokenModal from '../UIcomponent/SelectCoinFlipTokenModal';
+import SelectToken from '../UIcomponent/SelectToken';
+import { toggleTokenSelectorModel } from '../../redux/reducer/uicontrols';
+import { useDispatch, useSelector } from 'react-redux';
+import TokenHandler from '../UIcomponent/BaseComponents/TokenHandler';
 
 type Props = {}
 
 function SelectFlipToken({}: Props) {
-    const [selected, setSelected] = useState(false);
+    const dispatch = useDispatch();
+    const OpenTokenSelectionModel = useCallback(() => dispatch(toggleTokenSelectorModel()), [])
+    const selectorTokenSelectionModelState = useSelector((state:any) => state.uiControlsReducer)
+
+    
     return (
       <div className="flex flex-col gap-4" >
-        <div className="border-base-300 flex items-center justify-between rounded-2xl border py-5 px-6" onClick={()=> setSelected((pre) => !pre)}>
+        <div className="border-base-300 flex items-center justify-between rounded-2xl border py-5 px-6" onClick={OpenTokenSelectionModel}>
           <div className='flex items-center'>
-            <div className='mr-2 text-accent'>Select a token</div>
-            <SelctTokeninfo size='16' />
+            <TokenHandler />
           </div>
-          <SelctArrowDown bgcolor_hash='none' color_hash='#fff' size='52' />
+          <SelctArrowDown className='spin-animetion'  bgcolor_hash='none' color_hash='#fff' size='52' />
         </div>
-        <div className={`max-h-96 rounded-2xl transition-all ${!selected && "hidden"}`}>
+        <div className={`max-h-96 rounded-2xl transition-all mb-14 ${!selectorTokenSelectionModelState.tokenSelectorModel && "hidden"}`}>
+            <SelectToken />
+        </div>
+        <div className={`max-h-96 rounded-2xl transition-all mb-14 ${selectorTokenSelectionModelState.selectedTokenData == "" && "hidden"}`}>
             <SelectCoinFlipTokenModal />
         </div>
       </div>
     );
 }
 
-export default SelectFlipToken
+export default React.memo(SelectFlipToken)
