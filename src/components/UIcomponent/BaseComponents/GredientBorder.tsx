@@ -4,24 +4,24 @@ import { ThemeContext } from '../../../context/ThemeContext';
 type GredientBorderProps = {
     children?: ReactNode,
     height?: string,
-    tokentype?: string
+    tokentype?: "sol" | "t#"
 }
 
 function GredientBorder(props: GredientBorderProps) {
     const theme = useContext(ThemeContext);
     const TokentypeStyle = useCallback(() => {
         switch(props.tokentype){
-            case "solana":
+            case "sol":
                 return "from-[#00FFA3] to-[#DC1FFF]"
-            case "usdc":
-                return "from-sky-400 to-sky-600"
+            case "t#":
+                return "from-green-300 to-green-400"
             default:
                 return "from-black to-black"
         }
     }, [props.tokentype])
   return (
-    <div className={`${props.height ? props.height : "h-36"} w-full rounded-2xl bg-gradient-to-r ${TokentypeStyle()} p-0.5 hover:scale-105 transition-all duration-150 relative`}>
-        <div className={`h-full w-full ${theme.theme == 'light' ? "bg-white" : "bg-black"} rounded-2xl`}>
+    <div className={`${props.height ? props.height : "h-36"} w-full rounded-2xl bg-gradient-to-r ${TokentypeStyle()} p-0.5 hover:scale-105 transition-all duration-150 relative overflow-hidden`}>
+        <div className={`h-full w-full ${theme.theme == 'light' ? "bg-white" : "bg-black"} rounded-2xl `}>
                 {props.children}
         </div>
     </div>

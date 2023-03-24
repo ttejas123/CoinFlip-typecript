@@ -1,6 +1,4 @@
-import Image from "next/image";
 import React, { useContext } from "react";
-import { FooterCurvePinIcon } from "../../assets/img/Icons/Icons";
 import { ThemeContext } from "../../context/ThemeContext";
 import { CompanyLogoIcon } from "../../assets/img/Icons/Icons";
 
@@ -9,16 +7,16 @@ type Props = {};
 export default function Footer({}: Props) {
   const theame = useContext(ThemeContext);
   return (
-    <footer className={`text-default-content ${theame.theme == "light" ? "curveDivInCenterLight": "curveDivInCenterDark"} footer relative flex flex-wrap items-center justify-between rounded-2xl bg-base-200 p-10`}>
+    <footer className={`text-default-content ${theame.theme == "light" ? "curveDivInCenterLight": "curveDivInCenterDark"} footer relative flex flex-wrap items-center justify-between rounded-2xl bg-base-200 p-5 md:p-10`}>
       
       <div>
-          <a className="text-xl btn-ghost btn normal-case">
+          <a className="text-xl btn-ghost btn normal-case -ml-5 mt-5  md:m-0">
             {" "}
             <CompanyLogoIcon color={`${theame.theme == "light" ? "#000": "#fff"}`} />
           </a>
       </div>
-      <div className="flex justify-center pr-5">
-          <ul className="menu menu-horizontal px-1 text-accent text-base font-semibold">
+      <div>
+          <ul className="menu menu-horizontal text-accent text-base font-semibold">
               <li>
                 <label htmlFor="My-FAQ-Modal">FAQ</label>
               </li>

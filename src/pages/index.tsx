@@ -24,11 +24,11 @@ const Home: NextPage = () => {
       <FAQ />
       <SuccessFullShotModel />
       <Layout>
-        <div className="container rounded-2xl flex flex-row items-start justify-center gap-12 p-14 ">
-          <div className="w-2/3 ">
+        <div className="container rounded-2xl md:flex flex-row items-start justify-center gap-12 p-3 md:p-14 ">
+          <div className="w-full md:w-2/3 ">
             <RecentTxns />
           </div>
-          <div className="w-1/3">
+          <div className="w-full md:w-1/3">
             <SelectFlipToken />
           </div>
         </div>

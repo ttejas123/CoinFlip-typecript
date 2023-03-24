@@ -22,7 +22,7 @@ export const toggleTokenSelectorModel = () => ({
   type: TOKEN_SELECTOR_MODEL,
 });
 
-export const selectTokenData = (payload:'eth' | 't#') => ({
+export const selectTokenData = (payload:'sol' | 't#') => ({
   type: SELECTED_TOKEN_DATA,
   payload: payload
 });

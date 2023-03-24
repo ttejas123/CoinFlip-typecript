@@ -49,12 +49,20 @@ module.exports = {
           "base-200": "#FEFEFF",  //background off white
           "base-300": "#D9DAE1",  //border
           '.btn-token-increase': {
-              'color': "#000",
-              'background-color': '#fff',
-              'border': "0.1rem solid #aaa"
+              'color': "#FA4F00",
+              'background-color': '#FDE8DF'
           },
           '.btn-token-increase:hover': {
-              
+              'color': "#fff",
+              'background-color': "#FA4F00"
+          },
+          '.switchModeCoinFlipButtons': {
+             'color': '#fff',
+             'background-color': '#000'
+          },
+          '.switchModeCoinFlipButtons:hover': {
+            'color': '#fff',
+            'background-color': '#FA4F00'
           },
           '.FAQ-highlighter': {
               color: 'rgb(234 ,88 ,12)'
@@ -76,13 +84,20 @@ module.exports = {
           "base-200": "#121212",  //backgroud light dark 
           "base-300": "#292929",  //border
           '.btn-token-increase': {
-            'color': "#fff",
-            'background-color': '#121212',
-            'border': "0.1rem solid #292929",
+            'color': "#FA4F00",
+            'background-color': '#FDE8DF'
           },
           '.btn-token-increase:hover': {
-            'background-color': '#FA4F00',
-            'border': "0rem solid #aaa",
+              'color': "#fff",
+              'background-color': "#FA4F00"
+          },
+          '.switchModeCoinFlipButtons': {
+              'color': '#000',
+              'background-color': '#fff'
+          },
+          '.switchModeCoinFlipButtons:hover': {
+            'color': '#fff',
+            'background-color': '#FA4F00'
           },
           '.FAQ-highlighter': {
             color: 'rgb(234 ,88 ,12)'

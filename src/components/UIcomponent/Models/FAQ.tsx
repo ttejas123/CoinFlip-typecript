@@ -52,7 +52,7 @@ const questionsAndAnswers: QA[] = [
 const FAQ: React.FC = () => {
   return (
     <MediumModel UniqueId='My-FAQ-Modal'>
-        <div className='px-8 pt-8'>
+        <div className='md:px-8 pt-8'>
             {questionsAndAnswers.map(({ question, answer }, index) => (
                 <div key={index} className='mb-10'>
                 <div className='text-base-big font-extrabold'>{question}</div>

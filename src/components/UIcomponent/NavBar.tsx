@@ -7,7 +7,7 @@ type Props = {};
 export default function NavBar({}: Props) {
   const theame = useContext(ThemeContext);
   return (
-    <div className="border-base-300 navbar border-b-2 bg-base-100 py-4 px-24">
+    <div className="border-base-300 navbar border-b-2 bg-base-100 py-4 md:px-24">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn-ghost btn lg:hidden">
@@ -57,7 +57,7 @@ export default function NavBar({}: Props) {
             </li>
           </ul>
         </div>
-        <a className="btn bg-orange-600 border-none text-white">Select Wallet</a>
+        <a className="btn bg-orange-600 border-none text-white hidden md:flex">Select Wallet</a>
       </div>
     </div>
   );

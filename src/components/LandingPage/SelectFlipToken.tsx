@@ -15,8 +15,8 @@ function SelectFlipToken({}: Props) {
 
     
     return (
-      <div className="flex flex-col gap-4" >
-        <div className="border-base-300 flex items-center justify-between rounded-2xl border py-5 px-6" onClick={OpenTokenSelectionModel}>
+      <div className="flex flex-col gap-4 mt-4 md:mt-0" >
+        <div className="border-base-300 flex items-center justify-between rounded-2xl border py-5 px-6 hover:bg-black hover:text-white" onClick={OpenTokenSelectionModel}>
           <div className='flex items-center'>
             <TokenHandler />
           </div>

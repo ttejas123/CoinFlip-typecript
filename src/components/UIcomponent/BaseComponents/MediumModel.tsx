@@ -10,7 +10,7 @@ function MediumModel(props: MediumModelProps) {
     <>
     <input type="checkbox" id={props.UniqueId} className="modal-toggle" />
     <label htmlFor={props.UniqueId} className="modal cursor-pointer backdrop-blur-sm">
-    <div className="modal-box w-1/2 max-w-5xl scrollbar-style-dark border border-base-300">
+    <div className="modal-box md:w-1/2 max-w-5xl scrollbar-style-dark border border-base-300">
             {props.children}
         </div>
     </label>

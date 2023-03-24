@@ -94,12 +94,12 @@ export default function RecentTxns({}: Props) {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="border-base-300 flex items-center justify-between rounded-2xl border py-5 px-6 relative" onClick={()=> {
-        ToastContextInstance.ShowToast("Hii My Name is Tejas");
+      <div className="border-base-300 flex items-center justify-between rounded-2xl border py-5 px-2 md:px-6 relative" onClick={()=> {
+        ToastContextInstance.ShowToast("Hii This is for token Toast");
       }}>
 
         <CoinFlipLogoIcon color={theme.theme} />
-        <Image src={coinAnim} alt="coin" className="w-20" />
+        <Image src={coinAnim} alt="coin" className="hidden md:block w-20" />
         <div ref={RefFirstElement} className="first bg-white rounded-2xl flex flex-col justify-center items-center">
           <div className="text-subtitle font-bold ">We are gald to see you back at CoinFlip</div>
           <button className="btn btn-primary">Remember To Play Responsibly</button>
@@ -108,7 +108,7 @@ export default function RecentTxns({}: Props) {
       <div className={`border-base-300 max-h-96 overflow-y-scroll rounded-2xl border p-4 ${theme.theme == 'light' ? "scrollbar-style-light" : "scrollbar-style-dark"} scroll-smooth ${RecentTxnContext.RecentTxns.length == 0 && "hidden"}`}>
         {RecentTxnContext.RecentTxns.map((val, index) => {
             return (
-              <div key={val.id} className={`mb-2 flex w-full items-center justify-between transition-all cursor-pointer hover:scale-95 rounded-2xl ${alternetColorAccordingtoTheme(val.alternet ? val.alternet : false)} p-4 shadow-lg ${index == 0 ? "new" : ""}`}><Item {...val}  /></div>
+              <div key={val.id} className={`mb-2 flex w-[40rem]  md:w-full items-center justify-between transition-all cursor-pointer hover:scale-95 rounded-2xl ${alternetColorAccordingtoTheme(val.alternet ? val.alternet : false)}  p-4 md:p-4 shadow-lg ${index == 0 ? "new" : ""}`}><Item {...val}  /></div>
             )
         })}
       </div>
