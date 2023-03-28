@@ -12,7 +12,7 @@ export default function Footer({}: Props) {
       <div>
           <a className="text-xl btn-ghost btn normal-case -ml-5 mt-5  md:m-0">
             {" "}
-            <CompanyLogoIcon color={`${theame.theme == "light" ? "#000": "#fff"}`} />
+            <CompanyLogoIcon color={`${theame.theme == "light" ? "#000": "#fff"}`} className="" width="140" />
           </a>
       </div>
       <div>

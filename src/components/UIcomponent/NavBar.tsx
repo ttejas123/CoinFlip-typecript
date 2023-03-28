@@ -26,9 +26,15 @@ export default function NavBar({}: Props) {
               />
             </svg>
           </label>
+          <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+            <li><label htmlFor="My-FAQ-Modal" className="nav-pill">FAQ</label></li>
+            <li><a>State</a></li>
+            <li><a>Flip History</a></li>
+            <li><a>Profile</a></li>
+          </ul>
         </div>
         <div>
-          <CompanyLogoIcon color={`${theame.theme == "light" ? "#000": "#fff"}`} width="150" />
+          <CompanyLogoIcon color={`${theame.theme == "light" ? "#000": "#fff"}`} className="w-12" width="140" />
         </div>
       </div>
       <div className="navbar-end">

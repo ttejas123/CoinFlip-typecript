@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { LegacyRef, useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { CoinFlipLogoIcon } from "../../assets/img/Icons/Icons";
 import coinAnim from "../../assets/img/coin-anim.gif";
 import { formatWalletSmall } from "../../utils/WalletShort";
@@ -98,11 +98,11 @@ export default function RecentTxns({}: Props) {
         ToastContextInstance.ShowToast("Hii This is for token Toast");
       }}>
 
-        <CoinFlipLogoIcon color={theme.theme} />
+        <CoinFlipLogoIcon color={theme.theme}  />
         <Image src={coinAnim} alt="coin" className="hidden md:block w-20" />
         <div ref={RefFirstElement} className="first bg-white rounded-2xl flex flex-col justify-center items-center">
-          <div className="text-subtitle font-bold ">We are gald to see you back at CoinFlip</div>
-          <button className="btn btn-primary">Remember To Play Responsibly</button>
+          <div className="font-bold text-[15px] md:text-subtitle"> We are gald to see you back at CoinFlip</div>
+          <button className="btn btn-primary flex items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current flex-shrink-0 w-6 h-6 mr-1"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Remember To Play Responsibly</button>
         </div>
       </div>
       <div className={`border-base-300 max-h-96 overflow-y-scroll rounded-2xl border p-4 ${theme.theme == 'light' ? "scrollbar-style-light" : "scrollbar-style-dark"} scroll-smooth ${RecentTxnContext.RecentTxns.length == 0 && "hidden"}`}>

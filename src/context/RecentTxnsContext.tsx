@@ -1,4 +1,4 @@
-import React, { ReactNode, createContext, useState } from "react";
+import React, { ReactNode, createContext, useDeferredValue, useState } from "react";
 
 type txn = {
     id?: number
@@ -25,6 +25,7 @@ export const RecentTxnsContext = createContext<providerValueProps>({
 
 const RecentTxnsProvider = (recenttxnproviderprops: recentTxnProvidersProps) => {
     const [RecentTxns, setRecentTxns] = useState<txn[]>([]);
+    const deferedValue = useDeferredValue(RecentTxns, )
     const RegisterNewTxn = (props:txn):void => {
         setRecentTxns((pre: txn[]) : txn[] =>{ 
             return [
