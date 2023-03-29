@@ -1,4 +1,4 @@
-import {SELECT_FLIPTOKEN, SELECT_TOKEN_ARROWDOWN, SELECT_TOKEN_INFO, SELECT_TOKEN_COUNT, SELECT_TOKEN_COUNT_IN, COMPANY_LOGO_ICON, FOOTER_CURVE_PIN, SOLANA_ICON, TETHER_ICON} from './IconsString'
+import {SELECT_FLIPTOKEN, SELECT_TOKEN_ARROWDOWN, SELECT_TOKEN_INFO, SELECT_TOKEN_COUNT, SELECT_TOKEN_COUNT_IN, COMPANY_LOGO_ICON, FOOTER_CURVE_PIN, SOLANA_ICON, TETHER_ICON, SOLANAINFOICON} from './IconsString'
 import { COINFLIP_MAIN_LOGO } from './MainLogo'
 
 // model props
@@ -170,4 +170,15 @@ export const TetherIcon = (props: tetherIconProps) => {
     })
 
     return <div className={`${props.className}`} dangerouslySetInnerHTML={{__html: ProcessHtmlstr}}></div>
+}
+
+export const SolanaInfoIcon = () => {
+    // const ReplacementObjectValue:any = {
+       
+    // }
+
+    // const ProcessHtmlstr = SOLANAINFOICON.replace(/""/gi, (matched):string => {
+    //     return ReplacementObjectValue[matched];
+    // })
+    return <div className='w-6 h-6 mr-1' dangerouslySetInnerHTML={{__html: SOLANAINFOICON}}></div> 
 }

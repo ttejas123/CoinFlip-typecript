@@ -53,3 +53,9 @@ export const SOLANA_ICON = `<svg width={SIZE} height={SIZE} viewBox="0 0 32 32" 
 </linearGradient>
 </defs>
 </svg>`
+
+export const SOLANAINFOICON = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.9999 7.75V13M21.0799 8.58V15.42C21.0799 16.54 20.4799 17.58 19.5099 18.15L13.5699 21.58C12.5999 22.14 11.3999 22.14 10.4199 21.58L4.47992 18.15C4.00169 17.8727 3.60485 17.4745 3.32927 16.9953C3.05368 16.5161 2.90905 15.9728 2.90992 15.42V8.58C2.90992 7.46 3.50992 6.42 4.47992 5.85L10.4199 2.42C11.3899 1.86 12.5899 1.86 13.5699 2.42L19.5099 5.85C20.4799 6.42 21.0799 7.45 21.0799 8.58Z" stroke="#FEFEFE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 16.2002V16.3002" stroke="#FEFEFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+`

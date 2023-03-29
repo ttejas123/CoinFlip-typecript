@@ -1,6 +1,6 @@
 import React, { ChangeEvent, RefObject, useContext, useEffect, useRef, useState } from 'react'
 import GredientBorder from './BaseComponents/GredientBorder'
-import { SelectFlipToken, SelectTokenCount, SelectTokenCountIn } from '../../assets/img/Icons/Icons'
+import { SelectFlipToken, SelectTokenCount, SelectTokenCountIn, SolanaInfoIcon } from '../../assets/img/Icons/Icons'
 import CoinFace from '../../assets/img/Coin_Face.svg'
 import CoinCross from '../../assets/img/Coin_Cross.svg'
 import Image from 'next/image'
@@ -35,7 +35,9 @@ function SelectCoinFlipTokenModal() {
   }
 
   const trade_value_show_or_hide = ():string => {
-      const value =  numberOfSol.toFixed(2);
+      // const value =  numberOfSol.toFixed(2);
+      let value:any = 2.3;
+      value = (value.toFixed(2));
       if(hide) {
         return "*".repeat(4);
       }
@@ -81,7 +83,7 @@ function SelectCoinFlipTokenModal() {
         <div className='w-full h-full border border-base-300 mt-4 p-5 rounded-2xl text-base-200'>
               <div className='uppercase switchModeCoinFlipButtons rounded-lg text-overline font-bold text-center p-2 hover:scale-95 cursor-pointer transition-all' onClick={()=> setSwitchTwoX((pre:boolean) => !pre)}> Switch x{switchTwoX ? "1" : "2"} Mode </div>
               <div className='grid grid-cols-4 gap-y-2 w-full justify-between mt-4'> 
-                <div className='btn-token-increase font-bold cursor-pointer hover:scale-90 transition-all py-4 mx-1 text-center rounded-xl' onClick={()=> setNumberOfSol(SwitchtoXmodeValue(0.1))}>{SwitchtoXmodeValue(0.1)}</div>
+                <div className="btn-token-increase font-bold cursor-pointer hover:scale-90 transition-all py-4 mx-1 text-center rounded-xl" onClick={()=> setNumberOfSol(SwitchtoXmodeValue(0.1))}>{SwitchtoXmodeValue(0.1)}</div>
                 <div className='btn-token-increase font-bold cursor-pointer hover:scale-90 transition-all py-4 mx-1 text-center rounded-xl' onClick={()=> setNumberOfSol(SwitchtoXmodeValue(0.25))}  >{SwitchtoXmodeValue(0.25)}</div>
                 <div className='btn-token-increase font-bold cursor-pointer hover:scale-90 transition-all py-4 mx-1 text-center rounded-xl' onClick={()=> setNumberOfSol(SwitchtoXmodeValue(0.5))}  >{SwitchtoXmodeValue(0.5)}</div>
                 <div className='btn-token-increase font-bold cursor-pointer hover:scale-90 transition-all py-4 mx-1 text-center rounded-xl' onClick={()=> setNumberOfSol(SwitchtoXmodeValue(1))}  >{SwitchtoXmodeValue(1)}</div>
