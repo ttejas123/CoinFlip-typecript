@@ -101,9 +101,9 @@ export default function RecentTxns({}: Props) {
 
         <CoinFlipLogoIcon color={theme.theme}  />
         <Image src={coinAnim} alt="coin" className="hidden md:block w-20" />
-        <div ref={RefFirstElement} className="first bg-white rounded-2xl flex flex-col justify-center items-center">
+        <div ref={RefFirstElement} className="first bg-base-200 rounded-2xl flex flex-col justify-center items-center">
           <div className="font-bold text-[15px] md:text-subtitle"> We are gald to see you back at CoinFlip</div>
-          <button className="btn btn-primary flex items-center"><SolanaInfoIcon />Remember To Play Responsibly</button>
+          <button className="btn bg-orange-600 flex items-center"><SolanaInfoIcon />Remember To Play Responsibly</button>
         </div>
       </div>
       <div className={`border-base-300 max-h-96 overflow-y-scroll rounded-2xl border p-4 ${theme.theme == 'light' ? "scrollbar-style-light" : "scrollbar-style-dark"} scroll-smooth ${RecentTxnContext.RecentTxns.length == 0 && "hidden"}`}>

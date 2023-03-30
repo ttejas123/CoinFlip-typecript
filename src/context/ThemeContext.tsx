@@ -17,7 +17,7 @@ type Themeprops = {
 }
 
 const ThemProvider = (props:Themeprops) => {
-    const [theme, setTheme] = useState<ThemeType>("light");
+    const [theme, setTheme] = useState<ThemeType>("dark");
 
     const changeTheme = ():void => {
         setTheme((pre)=> {
