@@ -24,7 +24,7 @@ const Home: NextPage = () => {
       <FAQ />
       <SuccessFullShotModel />
       <Layout>
-        <div className="container rounded-2xl md:flex flex-row items-start justify-center gap-12 p-3 md:p-14 ">
+        <div className="container rounded-2xl md:flex flex-row items-start justify-center gap-12 md:p-14 ">
           <div className="w-full md:w-2/3 ">
             <RecentTxns />
           </div>

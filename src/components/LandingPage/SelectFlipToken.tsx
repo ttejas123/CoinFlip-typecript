@@ -22,10 +22,10 @@ function SelectFlipToken({}: Props) {
           </div>
           <SelctArrowDown className='spin-animetion'  bgcolor_hash='none' color_hash='#fff' size='52' />
         </div>
-        <div className={`max-h-96 rounded-2xl transition-all mb-14 ${!selectorTokenSelectionModelState.tokenSelectorModel && "hidden"}`}>
+        <div className={`max-h-96 rounded-2xl transition-all mb-5 ${!selectorTokenSelectionModelState.tokenSelectorModel && "hidden"}`}>
             <SelectToken />
         </div>
-        <div className={`max-h-96 rounded-2xl transition-all mb-14 ${selectorTokenSelectionModelState.selectedTokenData == "" && "hidden"}`}>
+        <div className={`max-h-96 rounded-2xl transition-all ${selectorTokenSelectionModelState.selectedTokenData == "" && "hidden"}`}>
             <SelectCoinFlipTokenModal />
         </div>
       </div>
