@@ -2,13 +2,12 @@ import Image from "next/image";
 import React, { useContext, useEffect, useRef } from "react";
 import { CoinFlipLogoIcon, SolanaInfoIcon } from "../../assets/img/Icons/Icons";
 import coinAnim from "../../assets/img/coin-anim.gif";
-import InfoSVG from '../../assets/img/info.svg'
 import { formatWalletSmall } from "../../utils/WalletShort";
 import { ThemeContext } from "../../context/ThemeContext";
 import { RecentTxnsContext } from "../../context/RecentTxnsContext";
 import { ToastContext } from "../../context/ToastContext";
 
-type Props = {};
+
 type ItemProps = {
     id?: number
     url?: string
@@ -47,7 +46,7 @@ const Item = (props: ItemProps) => {
 );
 }
 
-export default function RecentTxns({}: Props) {
+export default function RecentTxns() {
 
   const RecentTxnContext = useContext(RecentTxnsContext);
   const theme = useContext(ThemeContext)

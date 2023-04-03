@@ -25,7 +25,6 @@ export const RecentTxnsContext = createContext<providerValueProps>({
 
 const RecentTxnsProvider = (recenttxnproviderprops: recentTxnProvidersProps) => {
     const [RecentTxns, setRecentTxns] = useState<txn[]>([]);
-    const deferedValue = useDeferredValue(RecentTxns, )
     const RegisterNewTxn = (props:txn):void => {
         setRecentTxns((pre: txn[]) : txn[] =>{ 
             return [

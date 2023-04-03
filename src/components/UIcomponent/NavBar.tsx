@@ -1,10 +1,8 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { CompanyLogoIcon } from "../../assets/img/Icons/Icons";
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
-type Props = {};
 
-export default function NavBar({}:Props) {
+export default function NavBar() {
   const theame = useContext(ThemeContext);
   return (
     <div className="border-base-300 navbar border-b-2 bg-base-100 py-4 md:px-24">

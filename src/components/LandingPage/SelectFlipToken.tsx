@@ -6,9 +6,7 @@ import { toggleTokenSelectorModel } from '../../redux/reducer/uicontrols';
 import { useDispatch, useSelector } from 'react-redux';
 import TokenHandler from '../UIcomponent/BaseComponents/TokenHandler';
 
-type Props = {}
-
-function SelectFlipToken({}: Props) {
+function SelectFlipToken() {
     const dispatch = useDispatch();
     const OpenTokenSelectionModel = useCallback(() => dispatch(toggleTokenSelectorModel()), [])
     const selectorTokenSelectionModelState = useSelector((state:any) => state.uiControlsReducer)

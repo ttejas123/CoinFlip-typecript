@@ -2,9 +2,7 @@ import React, { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { CompanyLogoIcon } from "../../assets/img/Icons/Icons";
 
-type Props = {};
-
-export default function Footer({}: Props) {
+export default function Footer() {
   const theame = useContext(ThemeContext);
   return (
     <footer className={`text-default-content ${theame.theme == "light" ? "curveDivInCenterLight": "curveDivInCenterDark"} footer relative flex flex-wrap items-center justify-between rounded-2xl bg-base-200 p-5 md:p-10`}>
