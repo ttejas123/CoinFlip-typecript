@@ -43,7 +43,7 @@ const ToastProvider = ({ children }: ToastProps) => {
 
   return (
     <ToastContext.Provider value={{
-            ShowToast: ShowToast
+            ShowToast
     }}>
         {children}
         <div  className={`toast toast-start ${!show && 'hidden'} `}>
