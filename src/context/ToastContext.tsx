@@ -8,7 +8,7 @@ type ToastContextProps = {
 }
 
 export const ToastContext = createContext<ToastContextProps>({
-    ShowToast: (msg:string)=> {},
+    ShowToast: ()=> {},
 });
 
 const ToastProvider = ({ children }: ToastProps) => {
