@@ -8,7 +8,7 @@ type ToastContextProps = {
 }
 
 export const ToastContext = createContext<ToastContextProps>({
-    ShowToast: (msg:string)=> {},
+    ShowToast: (msg:string)=> void,
 });
 
 const ToastProvider = ({ children }: ToastProps) => {
@@ -24,7 +24,7 @@ const ToastProvider = ({ children }: ToastProps) => {
     };
   }, [trigInterval]);
 
-  const ShowToast = (msg: string) => {
+  const ShowToast = (msg: string):void => {
     setShow(true);
     setTrigInterval((pre: boolean):boolean => !pre)
     setDisplayMessage(msg);
