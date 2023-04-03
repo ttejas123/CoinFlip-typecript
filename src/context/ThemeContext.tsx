@@ -4,12 +4,12 @@ type ThemeType = "light" | "dark";
 
 type ThemeContextType = {
     theme: ThemeType,
-    changeTheme: ()=> void
+    changeTheme: ()=> string
 }
 
 export const ThemeContext = createContext<ThemeContextType>({
     theme: "light",
-    changeTheme: ()=> {}
+    changeTheme: ()=> ""
 });
 
 type Themeprops = {
@@ -19,10 +19,12 @@ type Themeprops = {
 const ThemProvider = (props:Themeprops) => {
     const [theme, setTheme] = useState<ThemeType>("dark");
 
-    const changeTheme = ():void => {
+    const changeTheme = () => {
         setTheme((pre)=> {
             return pre == "light" ? "dark" : "light"
         })
+
+        return "";
     }
 
     return (

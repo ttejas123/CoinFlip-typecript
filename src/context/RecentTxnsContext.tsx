@@ -15,17 +15,17 @@ type recentTxnProvidersProps = {
 
 type providerValueProps = {
     RecentTxns: txn[]
-    RegisterNewTxn: (props: txn) => void
+    RegisterNewTxn: (props: txn) => string
 }
 
 export const RecentTxnsContext = createContext<providerValueProps>({
     RecentTxns: [],
-    RegisterNewTxn: (props: txn) => {}
+    RegisterNewTxn: (props: txn) => ""
 });
 
 const RecentTxnsProvider = (recenttxnproviderprops: recentTxnProvidersProps) => {
     const [RecentTxns, setRecentTxns] = useState<txn[]>([]);
-    const RegisterNewTxn = (props:txn):void => {
+    const RegisterNewTxn = (props:txn) => {
         setRecentTxns((pre: txn[]) : txn[] =>{ 
             return [
                 {
@@ -39,6 +39,7 @@ const RecentTxnsProvider = (recenttxnproviderprops: recentTxnProvidersProps) => 
                 ...pre
             ]
         })
+        return "";
     }  
 
     return (
