@@ -95,6 +95,7 @@ export default function RecentTxns() {
   return (
     <div className="flex flex-col gap-4">
       <div className="border-base-300 flex items-center justify-between rounded-2xl border py-5 px-2 md:px-6 relative" onClick={()=> {
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
         ToastContextInstance.ShowToast("Hii This is for token Toast");
       }}>
 

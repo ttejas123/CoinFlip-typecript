@@ -24,7 +24,7 @@ const ToastProvider = ({ children }: ToastProps) => {
     };
   }, [trigInterval]);
 
-  const ShowToast = (msg: string):void => {
+  const ShowToast = (msg: string) => {
     setShow(true);
     setTrigInterval((pre: boolean):boolean => !pre)
     setDisplayMessage(msg);
