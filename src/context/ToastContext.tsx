@@ -4,11 +4,11 @@ type ToastProps = {
 };
 
 type ToastContextProps = {
-    ShowToast: (msg:string)=> void
+    ShowToast: (msg:string)=> string
 }
 
 export const ToastContext = createContext<ToastContextProps>({
-    ShowToast: ()=> {},
+    ShowToast: ()=> "",
 });
 
 const ToastProvider = ({ children }: ToastProps) => {
@@ -29,6 +29,7 @@ const ToastProvider = ({ children }: ToastProps) => {
     setTrigInterval((pre: boolean):boolean => !pre)
     setDisplayMessage(msg);
     countdown()
+    return ""
   }
 
   function countdown() {
